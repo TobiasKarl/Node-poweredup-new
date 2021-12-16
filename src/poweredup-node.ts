@@ -150,8 +150,36 @@ export class PoweredUP extends EventEmitter {
     public getHubsByType (hubType: number) {
         return Object.values(this._connectedHubs).filter((hub) => hub.type === hubType);
     }
+    public async addHubFromNoblePer(peripheral: Peripheral){
+        const device = new NobleDevice(peripheral);
 
+        let hub: BaseHub;
 
+        if (WeDo2SmartHub.IsWeDo2SmartHub(peripheral)) {
+            hub = new WeDo2SmartHub(device);
+        } else if (MoveHub.IsMoveHub(peripheral)) {
+            hub = new MoveHub(device);
+        } else if (Hub.IsHub(peripheral)) {
+            hub = new Hub(device);
+        } else if (RemoteControl.IsRemoteControl(peripheral)) {
+            hub = new RemoteControl(device);
+        } else if (DuploTrainBase.IsDuploTrainBase(peripheral)) {
+            hub = new DuploTrainBase(device);
+        } else if (TechnicSmallHub.IsTechnicSmallHub(peripheral)) {
+            hub = new TechnicSmallHub(device);
+        } else if (TechnicMediumHub.IsTechnicMediumHub(peripheral)) {
+            hub = new TechnicMediumHub(device);
+        } else if (Mario.IsMario(peripheral)) {
+            hub = new Mario(device);
+        } else {
+            return;
+        }
+        this._connectedHubs[hub.uuid] = hub;
+        return hub;
+    }
+    public removeHubFromNoblePer(hub: BaseHub){
+        delete this._connectedHubs[hub.uuid];
+    }
     private async _discoveryEventHandler (peripheral: Peripheral) {
 
         peripheral.removeAllListeners();
