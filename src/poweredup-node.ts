@@ -25,7 +25,7 @@ let wantScan = false;
 let discoveryEventAttached = false;
 
 const startScanning = () => {
-    noble.startScanning();
+    noble.startScanningAsync();
 };
 
 noble.on("stateChange", (state: string) => {
@@ -35,11 +35,11 @@ noble.on("stateChange", (state: string) => {
             debug("Scanning started");
             startScanning();
         }
-        noble.on('scanStop', () => {
+/*         noble.on('scanStop', () => {
             setTimeout(() => {
                 startScanning();
             }, 1000);
-        });
+        }); */
     } else {
         noble.stopScanning();
     }

@@ -15,6 +15,9 @@ declare module "@abandonware/noble" {
 
     export function startScanning(callback?: (error?: Error) => void): void;
     export function startScanning(serviceUUIDs: string[], callback?: (error?: Error) => void): void;
+    export function startScanningAsync(callback?: (error?: Error) => void): void;
+    export function stopScanningAsync(callback?: (error?: Error) => void): void;
+
     export function startScanning(serviceUUIDs: string[], allowDuplicates: boolean, callback?: (error?: Error) => void): void;
     export function stopScanning(callback?: () => void): void;
 
@@ -42,6 +45,7 @@ declare module "@abandonware/noble" {
         rssi:          number;
         services:      Service[];
         state:         'error' | 'connecting' | 'connected' | 'disconnecting' | 'disconnected';
+        connectAsync(callback?: (error: string) => void): void;
 
         connect(callback?: (error: string) => void): void;
         disconnect(callback?: () => void): void;
@@ -53,7 +57,12 @@ declare module "@abandonware/noble" {
         readHandle(handle: Buffer, callback: (error: string, data: Buffer) => void): void;
         writeHandle(handle: Buffer, data: Buffer, withoutResponse: boolean, callback: (error: string) => void): void;
         toString(): string;
+        on(event: "connectAsync", listener: (error: string) => void): this;
+        on(event: "startScanningAsync", listener: (error: string) => void): this;
+        on(event: "stopScanningAsync", listener: (error: string) => void): this;
 
+
+        
         on(event: "connect", listener: (error: string) => void): this;
         on(event: "disconnect", listener: (error: string) => void): this;
         on(event: "rssiUpdate", listener: (rssi: number) => void): this;

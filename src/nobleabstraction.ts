@@ -36,7 +36,7 @@ export class NobleDevice extends EventEmitter implements IBLEAbstraction {
         setTimeout(() => {
             this._name = device.advertisement.localName;
             this.emit("discoverComplete");
-        }, 1000);
+        }, 700);
     }
 
 
@@ -63,7 +63,7 @@ export class NobleDevice extends EventEmitter implements IBLEAbstraction {
     public connect () {
         return new Promise<void>((resolve, reject) => {
             this._connecting = true;
-            this._noblePeripheral.connect((err: string) => {
+            this._noblePeripheral.connectAsync((err: string) => {
                 if(err) {
                     return reject(err);
                 }
