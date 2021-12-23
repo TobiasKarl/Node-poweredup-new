@@ -2,7 +2,7 @@
 [![NPM Version](https://img.shields.io/npm/v/node-poweredup.svg?style=flat)](https://www.npmjs.com/package/node-poweredup)
 [![Docs](https://img.shields.io/badge/docs-start%20here-yellowgreen.svg)](https://nathan.kellenicki.com/node-poweredup/)
 
-# **Mobile Sandbox-node-poweredup** - A Javascript module to interface with LEGO Powered Up components for the mobilesandbox demo.
+# **Mobile Sandbox-node-poweredup** 
 
 ### Announcements
 Small changes to a couple initial bluetooth settings. To optimize the initial connection for the mobilesandbox demo.
