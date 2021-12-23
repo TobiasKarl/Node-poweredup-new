@@ -9,6 +9,6 @@ Small changes to a couple initial bluetooth settings. To optimize the initial co
 
 
 ### Credits
-This is Nathan kellenickis work wit minor changes. The original repo can be found at: https://github.com/nathankellenicki/node-poweredup
+This is Nathan kellenickis work with minor changes. The original repo can be found at: https://github.com/nathankellenicki/node-poweredup
 Thanks go to Jorge Pereira ([@JorgePe](https://github.com/JorgePe)), Sebastian Raff ([@hobbyquaker](https://github.com/hobbyquaker)), Valentin Heun ([@vheun](https://github.com/vheun)), Johan Korten ([@jakorten](https://github.com/jakorten)), and Andrey Pokhilko ([@undera](https://github.com/undera)) for their various works, contributions, and assistance on figuring out the LEGO Boost, WeDo 2.0, and Powered Up protocols.
 
